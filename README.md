@@ -37,8 +37,7 @@ Mean NUnfilled- average unfilled electron shells
 Mean NdUnfilled- average unfilled d-orbitals, directly tied to transition metal magnetism
 
 Scatter plots of each feature against magnetization, colored by ordering type, provide a visual preview of their predictive relevance ahead of formal hypothesis testing.
-## 5. Hypotheses Testing
-## Hypothesis Testing
+## 5. Hypothesis Testing
 
 Four statistical tests were run to confirm that the features we engineered actually relate to magnetic ordering and magnetization. All tests use α = 0.05 as the significance level. The feature distributions are heavily skewed so standard ANOVA and t-tests are notappropriate, non-parametric tests are used throughout.
 
