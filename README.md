@@ -1,10 +1,10 @@
 # Predicting A Materials Magnetic Moment From Compositional Featues
 ## 1. Project Motivation
 
-Magnetic materials are at the core of modern technology — from data storage and electric motors to medical imaging devices like MRI machines. Designing new magnetic materials typically requires Density Functional Theory (DFT) calculations, which are computationally expensive and slow, making large-scale screening of candidate materials impractical.
+Magnetic materials are at the core of modern technology-from data storage and electric motors to medical imaging devices like MRI machines. Designing new magnetic materials typically requires Density Functional Theory (DFT) calculations, which are computationally expensive and slow, making large-scale screening of candidate materials impractical.
 
 This project investigates whether the magnetic moment of an inorganic compound can be predicted directly from its chemical composition using machine learning, without any DFT calculations.
-
+a
 ## 2. Research Question
 Can we predict the magnetic moment of an inorganic compound from its compositional and structural features?
 ## 3. Data
@@ -45,31 +45,27 @@ Four statistical tests were run to confirm that the features we engineered actua
 
 The average number of unfilled electron orbitals per atom is computed via the Magpie feature-engineering framework. Unfilled orbitals are a proxy for electrons available for magnetic exchange interactions, so we expect FM materials to differ from NM.
 
-- **H0:** The distribution of unfilled orbitals is the same across FM, AFM, FiM, and NM
-- **H1:** At least one ordering type has a different distribution
-- **Result:** FM, AFM, FiM, and NM materials differ significantly in their unfilled orbital counts — confirming that this feature captures meaningful differences in electronic structure across ordering types (reject H0).
+- **H0:** There is no significant difference in the distribution of unfilled orbitals across FM, AFM, FiM, and NM
+- **H1:** There is a significant difference in the distribution of unfilled orbitals across at least one ordering type
 
 ### H2- Does the average number of unfilled d-orbitals differ across ordering types?
 
 Transition-metal magnetism (such as Fe, Co, Ni, Mn) arises from partially filled 3d shells, so the number of unfilled d-orbitals is a physically motivated feature for distinguishing magnetic from non-magnetic materials and for predicting magnetic moment magnitude.
 
-- **H0:** The distribution of unfilled d-orbitals is the same across FM, AFM, FiM, and NM
-- **H1:** At least one ordering type has a different distribution
-- **Result:** The number of unfilled d-orbitals differs significantly across ordering types — consistent with the role of partially filled 3d shells in driving transition-metal magnetism (reject H0).
+- **H0:** There is no significant difference in the distribution of unfilled d-orbitals across FM, AFM, FiM, and NM
+- **H1:** There is a significant difference in the distribution of unfilled d-orbitals across at least one ordering type
 
 ### H3- Does band gap differ between magnetic and non-magnetic materials?
 
 Many magnetic materials are metals with a band gap of zero, while non-magnetic materials include insulators and semiconductors with non-zero band gaps. If confirmed, band gap becomes a useful separating feature for the ML model.
 
-- **H0:** Magnetic and non-magnetic materials have the same band gap distribution
-- **H1:** They are different
-- **Result:**Magnetic materials have significantly lower band gaps than non-magnetic materials (reject H0).
+- **H0:** There is no significant difference in band gap distribution between magnetic and non-magnetic materials
+- **H1:** There is a significant difference in band gap distribution between magnetic and non-magnetic materials
 
 ### H4- Does the fraction of magnetic elements in a compound correlate with its magnetization?
 
 Tests whether our engineered feature — the proportion of magnetic elements (Fe, Co, Ni, Mn, etc.) in a chemical formula, is a useful predictor of
-magnetization. A significant correlation validates it as an ML feature.
+magnetization.
 
 - **H0:** No monotonic relationship between magnetic element fraction and magnetization
 - **H1:** A significant positive monotonic relationship exists
-- **Result:**  A higher fraction of magnetic elements in a compound is associated with higher magnetization (reject H0).
