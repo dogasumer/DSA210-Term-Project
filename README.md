@@ -69,3 +69,35 @@ magnetization.
 
 - **H0:** No monotonic relationship between magnetic element fraction and magnetization
 - **H1:** A significant positive monotonic relationship exists
+
+## 6. Machine Learning
+### Models
+Three classifiers were trained to predict magnetic ordering type (FM / AFM / FiM / NM) from compositional features alone:
+| Model | Validation Accuracy |
+|---|---|
+| Logistic Regression (Baseline) | 0.592 |
+| Gradient Boosting (125 trees) | 0.696 |
+| Random Forest (300 trees) | 0.723 |
+
+### Methodology:
+- Train / Validation / Test split: 70% / 15% / 15% with stratification
+- StandardScaler fit on training data only to prevent data leakage
+- 5-fold cross-validation mean accuracy: 0.710
+- Final test set accuracy: 0.684
+
+### Per-Class Performance (Random Forest)
+
+- NM: easiest to predict, distinct band gap and near-zero magnetic element fraction
+- AFM: moderate, some confusion with FM and FiM
+- FiM: moderate, frequently confused with FM
+- FM: ardest, FM and FiM share the same magnetic transition metals (Fe, Co, Ni) and composition alone cannot capture spin alignment differences
+
+### Feature Importance
+
+| Feature | Rank | Importance | Hypothesis |
+|---|---|---|---|
+| mag_element_fraction | #1 | 0.103 | H4 |
+| band_gap | #2 | 0.097 | H3 |
+| MagpieData mean NdUnfilled | #4 | 0.077 | H2 |
+| MagpieData mean Electronegativity | #7 | 0.057 | H1 |
+| MagpieData mean NUnfilled | #12 | 0.047 | H1 |
