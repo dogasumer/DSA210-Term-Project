@@ -101,3 +101,10 @@ Three classifiers were trained to predict magnetic ordering type (FM / AFM / FiM
 | MagpieData mean NdUnfilled | #4 | 0.077 | H2 |
 | MagpieData mean Electronegativity | #7 | 0.057 | H1 |
 | MagpieData mean NUnfilled | #12 | 0.047 | H1 |
+
+### Conclusions
+
+- Magnetic ordering type can be predicted from composition alone with 72.3% validation accuracy and 68.4% test accuracy.
+-  mag_element_fraction and band_gap are the two strongest predictors, confirming H4 and H3
+- FM vs FiM confusion is the main limitation. Both share the same magnetic transition metals and composition alone cannot capture spin alignment
+- Results are stable across 5-fold cross-validation (mean 0.710), confirming reliable generalisation to unseen data
