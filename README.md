@@ -1,4 +1,4 @@
-# Predicting A Materials Magnetic Moment From Compositional Featues
+# Predicting A Materials Magnetic Moment From Compositional Features
 ## 1. Project Motivation
 
 Magnetic materials are at the core of modern technology-from data storage and electric motors to medical imaging devices like MRI machines. Designing new magnetic materials typically requires Density Functional Theory (DFT) calculations, which are computationally expensive and slow, making large-scale screening of candidate materials impractical.
