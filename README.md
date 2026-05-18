@@ -55,7 +55,7 @@ Transition-metal magnetism (such as Fe, Co, Ni, Mn) arises from partially filled
 
 - **H0:** There is no significant difference in the distribution of unfilled d-orbitals across FM, AFM, FiM, and NM
 - **H1:** There is a significant difference in the distribution of unfilled d-orbitals across at least one ordering type
-- Result: H0 rejected (p ≈ 0, H = 2255.58)
+- Result: H0 rejected (p ~ 0, H = 2255.58)
 
 ### H3- Does band gap differ between magnetic and non-magnetic materials?
 
