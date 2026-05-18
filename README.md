@@ -4,7 +4,7 @@
 Magnetic materials are at the core of modern technology-from data storage and electric motors to medical imaging devices like MRI machines. Designing new magnetic materials typically requires Density Functional Theory (DFT) calculations, which are computationally expensive and slow, making large-scale screening of candidate materials impractical.
 
 This project investigates whether the magnetic moment of an inorganic compound can be predicted directly from its chemical composition using machine learning, without any DFT calculations.
-a
+
 ## 2. Research Question
 Can we predict the magnetic moment of an inorganic compound from its compositional and structural features?
 ## 3. Data
@@ -47,6 +47,7 @@ The average number of unfilled electron orbitals per atom is computed via the Ma
 
 - **H0:** There is no significant difference in the distribution of unfilled orbitals across FM, AFM, FiM, and NM
 - **H1:** There is a significant difference in the distribution of unfilled orbitals across at least one ordering type
+- Result: H0 rejected (p = 2.08e-190)
 
 ### H2- Does the average number of unfilled d-orbitals differ across ordering types?
 
@@ -54,6 +55,7 @@ Transition-metal magnetism (such as Fe, Co, Ni, Mn) arises from partially filled
 
 - **H0:** There is no significant difference in the distribution of unfilled d-orbitals across FM, AFM, FiM, and NM
 - **H1:** There is a significant difference in the distribution of unfilled d-orbitals across at least one ordering type
+- Result: H0 rejected (p ≈ 0, H = 2255.58)
 
 ### H3- Does band gap differ between magnetic and non-magnetic materials?
 
@@ -61,6 +63,7 @@ Many magnetic materials are metals with a band gap of zero, while non-magnetic m
 
 - **H0:** There is no significant difference in band gap distribution between magnetic and non-magnetic materials
 - **H1:** There is a significant difference in band gap distribution between magnetic and non-magnetic materials
+- Result: H0 rejected (p = 5.58e-94)
 
 ### H4- Does the fraction of magnetic elements in a compound correlate with its magnetization?
 
@@ -69,6 +72,7 @@ magnetization.
 
 - **H0:** No monotonic relationship between magnetic element fraction and magnetization
 - **H1:** A significant positive monotonic relationship exists
+- Result: H0 rejected (ρ = 0.348, p ~ 0)
 
 ## 6. Machine Learning
 ### Models
@@ -77,6 +81,7 @@ Three classifiers were trained to predict magnetic ordering type (FM / AFM / FiM
 |---|---|
 | Logistic Regression (Baseline) | 0.592 |
 | Gradient Boosting (125 trees) | 0.696 |
+| XGBoost (200 Trees) | 0.703 |
 | Random Forest (300 trees) | 0.723 |
 
 ### Methodology:
@@ -99,7 +104,6 @@ Three classifiers were trained to predict magnetic ordering type (FM / AFM / FiM
 | mag_element_fraction | #1 | 0.103 | H4 |
 | band_gap | #2 | 0.097 | H3 |
 | MagpieData mean NdUnfilled | #4 | 0.077 | H2 |
-| MagpieData mean Electronegativity | #7 | 0.057 | H1 |
 | MagpieData mean NUnfilled | #12 | 0.047 | H1 |
 
 ### Conclusions
