@@ -112,3 +112,23 @@ Three classifiers were trained to predict magnetic ordering type (FM / AFM / FiM
 -  mag_element_fraction and band_gap are the two strongest predictors, confirming H4 and H3
 - FM vs FiM confusion is the main limitation. Both share the same magnetic transition metals and composition alone cannot capture spin alignment
 - Results are stable across 5-fold cross-validation (mean 0.710), confirming reliable generalisation to unseen data
+
+## 7. Setup and Reproducing the Analysis
+#### Requirements
+pip install -r requirements.txt
+
+#### Run notebooks in the following order:
+
+- data_collection.ipynb : queries the Materials Project API and generates the featurized dataset. Saves materials_featurized.csv to the data folder.
+- eda_magnetic_materials.ipynb : exploratory data analysis including magnetization distributions, correlation heatmap, magnetic element fraction, and Magpie feature scatter plots.
+- hypothesis_testing_magnetic_materials.ipynb : four statistical tests on the engineered features.
+- ML_magnetic_materials.ipynb : trains and evaluates Logistic Regression, Gradient Boosting, XGBoost, and Random Forest classifiers. Produces feature importance analysis and cross-validation results.
+
+Note: A Materials Project API key is required to run data_collection.ipynb. Register for a free key at materialsproject.org and replace the API_KEY variable in the notebook with your own. The remaining notebooks can be run directly using the provided dataset in the data/ folder without an API key.
+
+## 8. AI Usage Disclosure
+Claude was used as an assistant throughout this project. Specifically it was used for:
+- Reviewing and refining written sections of the report and README
+- Debugging and reviewing Python code
+
+All analysis, code, and results are my own. Claude was not used to generate code or produce results directly.
